@@ -1,0 +1,65 @@
+# Configuration des messages pour le plugin CoinFlip
+
+# ======= PLACEHOLDERS DISPONIBLES =======
+# Les placeholders suivants sont disponibles avec PlaceholderAPI:
+#
+# Statistiques des joueurs:
+# %cf_wins% - Nombre de victoires du joueur
+# %cf_losses% - Nombre de défaites du joueur
+# %cf_total_games% - Nombre total de parties jouées
+# %cf_win_percentage% - Pourcentage de victoires (format: 75.5)
+# %cf_total_winnings% - Montant total des gains (formaté: 1.5M, 500K, etc.)
+# %cf_total_losses% - Montant total des pertes (formaté)
+# %cf_net_profit% - Profit net (gains - pertes, formaté)
+# %cf_best_win% - Meilleur gain en une partie (formaté)
+#
+# Classements:
+# %cf_top_wins_X_name% - Nom du joueur à la position X du classement des victoires
+# %cf_top_wins_X_value% - Nombre de victoires du joueur à la position X
+# %cf_top_games_X_name% - Nom du joueur à la position X du classement des parties jouées
+# %cf_top_games_X_value% - Nombre de parties du joueur à la position X
+# %cf_top_winnings_X_name% - Nom du joueur à la position X du classement des gains
+# %cf_top_winnings_X_value% - Montant des gains du joueur à la position X
+# %cf_top_profit_X_name% - Nom du joueur à la position X du classement des profits
+# %cf_top_profit_X_value% - Profit du joueur à la position X
+# %cf_top_ratio_X_name% - Nom du joueur à la position X du classement des ratios
+# %cf_top_ratio_X_value% - Ratio du joueur à la position X
+# =======================================
+
+# Configuration des annonces
+announcements:
+  # Activer ou désactiver les annonces globales
+  global-enabled: true
+  
+  # Montant minimum pour une annonce globale (0 pour annoncer tous les CoinFlips)
+  min-amount: 5000
+
+# Messages personnalisables
+# Variables disponibles dans les messages:
+# {winner} - Nom du gagnant
+# {loser} - Nom du perdant
+# {amount} - Montant du pari
+# {winnings} - Gains totaux (après taxe)
+# {tax} - Montant de la taxe
+# {player} - Nom du joueur
+# {min} - Montant minimum
+# {max} - Montant maximum
+# {position} - Position dans un classement
+# {name} - Nom d'un joueur
+# {value} - Valeur associée
+# {type} - Type de classement
+# {opponent} - Nom de l'adversaire
+# {date} - Date d'une partie
+# {games} - Nombre de parties
+# {wins} - Nombre de victoires
+# {losses} - Nombre de défaites
+# {ratio} - Ratio de victoires
+# {profit} - Profit net
+# {best} - Meilleur gain
+# {count} - Nombre d'éléments
+#
+# Note: Pour utiliser les placeholders PlaceholderAPI dans les messages,
+# vous pouvez utiliser la syntaxe %placeholder% dans n'importe quel message.
+# Exemple: "Vous avez gagné %cf_total_games% parties au total!"
+
+# Message de victoire (envoyé au gagnant)
