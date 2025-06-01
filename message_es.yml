@@ -1,0 +1,167 @@
+# Configuración de mensajes para el plugin CoinFlip
+
+# ======= PLACEHOLDERS DISPONIBLES =======
+# Los siguientes marcadores están disponibles con PlaceholderAPI:
+#
+# Estadísticas de jugadores:
+# %cf_wins% - Número de victorias del jugador
+# %cf_losses% - Número de derrotas del jugador
+# %cf_total_games% - Total de partidas jugadas
+# %cf_win_percentage% - Porcentaje de victorias (formato: 75.5)
+# %cf_total_winnings% - Ganancias totales (formato: 1.5M, 500K, etc.)
+# %cf_total_losses% - Pérdidas totales (formato)
+# %cf_net_profit% - Ganancia neta (ganancias - pérdidas, formato)
+# %cf_best_win% - Mejor ganancia en una partida (formato)
+#
+# Clasificaciones:
+# %cf_top_wins_X_name% - Nombre del jugador en la posición X del ranking de victorias
+# %cf_top_wins_X_value% - Número de victorias del jugador en la posición X
+# %cf_top_games_X_name% - Nombre del jugador en la posición X del ranking de partidas
+# %cf_top_games_X_value% - Número de partidas del jugador en la posición X
+# %cf_top_winnings_X_name% - Nombre del jugador en la posición X del ranking de ganancias
+# %cf_top_winnings_X_value% - Ganancias del jugador en la posición X
+# %cf_top_profit_X_name% - Nombre del jugador en la posición X del ranking de beneficios
+# %cf_top_profit_X_value% - Beneficio del jugador en la posición X
+# %cf_top_ratio_X_name% - Nombre del jugador en la posición X del ranking de ratio
+# %cf_top_ratio_X_value% - Ratio del jugador en la posición X
+# ========================================
+
+announcements:
+  global-enabled: true
+  min-amount: 5000
+
+win-message: "§a§l¡VICTORIA! §aHas ganado §6{winnings}$ §acontra §e{loser}§a!"
+lose-message: "§c§l¡DERROTA! §cHas perdido §6{amount}$ §ccontra §e{winner}§c."
+global-announcement: "§6§l[CoinFlip] §e{winner} §aganó §6{winnings}$ §acontra §e{loser}§a!"
+create-message: "§aHas creado un CoinFlip de §6{amount}$§a."
+cancel-message: "§aTu CoinFlip de §6{amount}$ §aha sido cancelado y se te ha reembolsado."
+
+not-enough-money: "§c¡No tienes suficiente dinero para crear este CoinFlip!"
+own-coinflip: "§c¡No puedes unirte a tu propio CoinFlip!"
+
+leaderboard:
+  header: "&6=== Clasificación CoinFlip: {type} ==="
+  format: "&e#{position}. &f{name} &7- &6{value}"
+  empty: "&7No hay jugadores en esta clasificación"
+  footer: "&6==============================="
+
+commands:
+  reload-success: "§a¡Configuración recargada correctamente!"
+  no-permission: "§c¡No tienes permiso para usar este comando!"
+  player-only: "§c¡Este comando solo puede ser usado por un jugador!"
+  invalid-amount: "§c¡Cantidad inválida! Usa un número entre {min} y {max}."
+  toggle-announcements-on: "§aHas activado los anuncios de CoinFlip."
+  toggle-announcements-off: "§cHas desactivado los anuncios de CoinFlip."
+
+coinflip:
+  server-shutdown: "§cTodos los CoinFlips han sido cancelados debido al cierre del servidor."
+  coinflip-not-exists: "§cEste CoinFlip ya no existe."
+  cancelled-refunded: "§aTu CoinFlip fue cancelado y se te ha reembolsado."
+  not-enough-money-join: "§c¡No tienes suficiente dinero para unirte a este CoinFlip!"
+  economy-disabled: "§c¡La economía no está activada en este servidor!"
+  creator-offline: "§cEl creador del CoinFlip está desconectado. Se te ha reembolsado."
+  no-active-coinflip: "§cNo tienes un CoinFlip activo para cancelar."
+  already-have-coinflip: "§c¡Ya tienes un CoinFlip activo! Usa /coinflip cancel para cancelarlo."
+  not-enough-money-create: "§c¡No tienes suficiente dinero!"
+  amount-too-low: "§cLa cantidad mínima es §6{min}$§c."
+  amount-too-high: "§cLa cantidad máxima es §6{max}$§c."
+  invalid-amount-format: "§cCantidad inválida. Usa /cf <cantidad> o /cf help para ayuda"
+
+  coinflip-created: "§a¡CoinFlip creado con §6{amount}$§a!"
+  coinflip-announcement: "§e[{player}] ha creado un CoinFlip de §6{amount}$§e!"
+
+  help:
+    header: "§6=== Ayuda CoinFlip ==="
+    open-menu: "§e/cf §7- Abre el menú de CoinFlips activos"
+    create: "§e/cf <cantidad> §7- Crea un nuevo CoinFlip con la cantidad indicada"
+    cancel: "§e/cf cancel §7- Cancela tu CoinFlip activo y recibe un reembolso"
+    help: "§e/cf help §7- Muestra este mensaje de ayuda"
+    stats: "§e/cfstats [jugador] §7- Muestra las estadísticas de CoinFlip"
+    history: "§e/cfhistory [jugador] §7- Muestra el historial de partidas"
+    announce: "§e/cfannounce §7- Activa o desactiva los anuncios de CoinFlip"
+    min-amount: "§7Cantidad mínima: §6{min}$"
+    max-amount: "§7Cantidad máxima: §6{max}$"
+    tax: "§7Impuesto: §c{tax}%"
+
+gui:
+  coinflip-menu:
+    title: "§6CoinFlips activos"
+    your-coinflip: "§cEste es tu CoinFlip"
+    cancel-instruction: "§cHaz clic para cancelarlo y recibir un reembolso"
+    join-instruction: "§aHaz clic para unirte a este CoinFlip"
+    amount-label: "§7Cantidad: §6{amount}$"
+    tax-label: "§7Impuesto: §c{tax}$"
+    potential-win-label: "§7Ganancia potencial: §a{winnings}$"
+    info-title: "§6Información"
+    info-has-active: "§7Tienes un CoinFlip activo"
+    info-can-cancel: "§7Puedes cancelarlo haciendo clic en él"
+    info-cancel-command: "§7o usando §6/coinflip cancel"
+
+  history-menu:
+    title: "§6Historial CoinFlip"
+    no-games: "§cNo hay partidas en el historial"
+    victory: "§aVictoria"
+    defeat: "§cDerrota"
+    against: "§7contra §f{opponent}"
+    date-label: "§7Fecha: §f{date}"
+    amount-label: "§7Cantidad: §6{amount}$"
+    winnings-label: "§7Ganancia: §a+{winnings}$"
+    losses-label: "§7Pérdida: §c-{amount}$"
+
+stats:
+  console-no-stats: "§cSolo los jugadores pueden ver sus estadísticas."
+  console-use-player: "§cUsa /cfstats <jugador> para ver estadísticas de otro jugador."
+  player-not-found: "§cJugador no encontrado o desconectado."
+
+  help:
+    header: "§6=== Ayuda de estadísticas CoinFlip ==="
+    own-stats: "§e/cfstats §7- Muestra tus estadísticas"
+    player-stats: "§e/cfstats <jugador> §7- Muestra las estadísticas de otro jugador"
+    top-stats: "§e/cfstats top §7- Muestra el ranking de los mejores jugadores"
+
+  display:
+    header: "§6=== Estadísticas de {player} ==="
+    games-played: "§ePartidas jugadas: §f{games}"
+    wins: "§eVictorias: §a{wins}"
+    losses: "§eDerrotas: §c{losses}"
+    win-ratio: "§eRatio de victorias: §f{ratio}%"
+    total-winnings: "§eGanancias totales: §a{winnings}$"
+    total-losses: "§ePérdidas totales: §c{losses}$"
+    net-profit: "§eGanancia neta: §f{profit}$"
+    best-win: "§eMejor ganancia: §a{best}$"
+
+  top:
+    no-data: "§7No hay datos disponibles."
+    wins-header: "§6=== Top {count} jugadores con más victorias ==="
+    wins-format: "§e{position}. §f{name} §7- §a{wins} victorias"
+    profit-header: "§6=== Top {count} jugadores con más beneficio ==="
+    profit-format: "§e{position}. §f{name} §7- §a{profit}$"
+    ratio-header: "§6=== Top {count} mejores ratios (mín. {min} partidas) ==="
+    ratio-format: "§e{position}. §f{name} §7- §a{ratio}% §7({wins}/{games})"
+    wins-top-header: "§6=== Top 5 jugadores con más victorias ==="
+    wins-top-format: "§e{position}. §f{name} §7- §a{wins} victorias"
+    profit-top-header: "§6=== Top 5 jugadores con más beneficio ==="
+    profit-top-format: "§e{position}. §f{name} §7- §a{profit}$"
+    ratio-top-header: "§6=== Top 5 mejores ratios (mín. 10 partidas) ==="
+    ratio-top-format: "§e{position}. §f{name} §7- §a{ratio}% §7({wins}/{games})"
+
+history:
+  player-only: "§cSolo los jugadores pueden usar este comando."
+  no-permission: "§cNo tienes permiso para ver el historial de otros jugadores."
+  player-not-found: "§cJugador no encontrado o desconectado."
+
+  help:
+    header: "§6=== Ayuda historial CoinFlip ==="
+    own-history: "§e/cf history §7- Muestra tu historial"
+    player-history: "§e/cf history <jugador> §7- Muestra el historial de otro jugador"
+
+animation:
+  info-title: "§6§lInformación"
+  amount-label: "§7Apuesta: §6{amount}$"
+  player1-label: "§7Jugador 1: §e{player1}"
+  player2-label: "§7Jugador 2: §e{player2}"
+  in-progress: "§eSorteo en curso..."
+  result-title: "§6§lResultado"
+  winner-label: "§a§lGanador: §e{winner}"
+  loser-label: "§c§lPerdedor: §e{loser}"
+  gain-label: "§6Ganancia: §e{gain}$"
