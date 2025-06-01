@@ -1,0 +1,168 @@
+# Message Configuration for the CoinFlip Plugin
+
+# ======= AVAILABLE PLACEHOLDERS =======
+# The following placeholders are available with PlaceholderAPI:
+#
+# Player stats:
+# %cf_wins% - Number of player wins
+# %cf_losses% - Number of player losses
+# %cf_total_games% - Total number of games played
+# %cf_win_percentage% - Win percentage (format: 75.5)
+# %cf_total_winnings% - Total winnings (formatted: 1.5M, 500K, etc.)
+# %cf_total_losses% - Total losses (formatted)
+# %cf_net_profit% - Net profit (winnings - losses, formatted)
+# %cf_best_win% - Best win in a single game (formatted)
+#
+# Leaderboards:
+# %cf_top_wins_X_name% - Name of player at position X in the wins leaderboard
+# %cf_top_wins_X_value% - Number of wins of player at position X
+# %cf_top_games_X_name% - Name of player at position X in games played leaderboard
+# %cf_top_games_X_value% - Number of games of player at position X
+# %cf_top_winnings_X_name% - Name of player at position X in total winnings leaderboard
+# %cf_top_winnings_X_value% - Total winnings of player at position X
+# %cf_top_profit_X_name% - Name of player at position X in profit leaderboard
+# %cf_top_profit_X_value% - Profit of player at position X
+# %cf_top_ratio_X_name% - Name of player at position X in win ratio leaderboard
+# %cf_top_ratio_X_value% - Ratio of player at position X
+# ======================================
+
+# Announcement Configuration
+announcements:
+  global-enabled: true
+  min-amount: 5000
+
+# Customizable messages
+win-message: "§a§lVICTORY! §aYou won §6{winnings}$ §aagainst §e{loser}§a!"
+lose-message: "§c§lDEFEAT! §cYou lost §6{amount}$ §cto §e{winner}§c."
+global-announcement: "§6§l[CoinFlip] §e{winner} §awon §6{winnings}$ §aagainst §e{loser}§a!"
+create-message: "§aYou created a CoinFlip for §6{amount}$§a."
+cancel-message: "§aYour CoinFlip of §6{amount}$ §awas cancelled and you have been refunded."
+not-enough-money: "§cYou don't have enough money to create this CoinFlip!"
+own-coinflip: "§cYou cannot join your own CoinFlip!"
+
+leaderboard:
+  header: "&6=== CoinFlip Leaderboard: {type} ==="
+  format: "&e#{position}. &f{name} &7- &6{value}"
+  empty: "&7No players in this leaderboard"
+  footer: "&6==============================="
+
+commands:
+  reload-success: "§aConfiguration successfully reloaded!"
+  no-permission: "§cYou don't have permission to use this command!"
+  player-only: "§cThis command can only be used by a player!"
+  invalid-amount: "§cInvalid amount! Use a number between {min} and {max}."
+  toggle-announcements-on: "§aYou have enabled CoinFlip announcements."
+  toggle-announcements-off: "§cYou have disabled CoinFlip announcements."
+
+coinflip:
+  server-shutdown: "§cAll CoinFlips have been cancelled due to server shutdown."
+  coinflip-not-exists: "§cThis CoinFlip no longer exists."
+  cancelled-refunded: "§aYour CoinFlip was cancelled and you have been refunded."
+  not-enough-money-join: "§cYou don't have enough money to join this CoinFlip!"
+  economy-disabled: "§cEconomy is not enabled on this server!"
+  creator-offline: "§cThe CoinFlip creator is offline. You have been refunded."
+  no-active-coinflip: "§cYou don’t have an active CoinFlip to cancel."
+  already-have-coinflip: "§cYou already have an active CoinFlip! Use /coinflip cancel to cancel it."
+  not-enough-money-create: "§cYou don't have enough money!"
+  amount-too-low: "§cMinimum amount is §6{min}$§c."
+  amount-too-high: "§cMaximum amount is §6{max}$§c."
+  invalid-amount-format: "§cInvalid amount. Use /cf <amount> or /cf help for help"
+
+  coinflip-created: "§aCoinFlip created with §6{amount}$§a!"
+  coinflip-announcement: "§e[{player}] created a CoinFlip for §6{amount}$§e!"
+
+  help:
+    header: "§6=== CoinFlip Help ==="
+    open-menu: "§e/cf §7- Opens the current CoinFlip menu"
+    create: "§e/cf <amount> §7- Create a new CoinFlip with specified amount"
+    cancel: "§e/cf cancel §7- Cancel your active CoinFlip and get refunded"
+    help: "§e/cf help §7- Display this help message"
+    stats: "§e/cfstats [player] §7- View CoinFlip stats"
+    history: "§e/cfhistory [player] §7- View CoinFlip history"
+    announce: "§e/cfannounce §7- Toggle CoinFlip announcements"
+    min-amount: "§7Minimum amount: §6{min}$"
+    max-amount: "§7Maximum amount: §6{max}$"
+    tax: "§7Tax: §c{tax}%"
+
+gui:
+  coinflip-menu:
+    title: "§6Active CoinFlips"
+    your-coinflip: "§cThis is your CoinFlip"
+    cancel-instruction: "§cClick to cancel and get refunded"
+    join-instruction: "§aClick to join this CoinFlip"
+    amount-label: "§7Amount: §6{amount}$"
+    tax-label: "§7Tax: §c{tax}$"
+    potential-win-label: "§7Potential Winnings: §a{winnings}$"
+    info-title: "§6Information"
+    info-has-active: "§7You have an active CoinFlip"
+    info-can-cancel: "§7You can cancel it by clicking it"
+    info-cancel-command: "§7or using §6/coinflip cancel"
+
+  history-menu:
+    title: "§6CoinFlip History"
+    no-games: "§cNo games in history"
+    victory: "§aVictory"
+    defeat: "§cDefeat"
+    against: "§7against §f{opponent}"
+    date-label: "§7Date: §f{date}"
+    amount-label: "§7Amount: §6{amount}$"
+    winnings-label: "§7Winnings: §a+{winnings}$"
+    losses-label: "§7Losses: §c-{amount}$"
+
+stats:
+  console-no-stats: "§cOnly players can view their own stats."
+  console-use-player: "§cUse /cfstats <player> to view stats of a player."
+  player-not-found: "§cPlayer not found or offline."
+
+  help:
+    header: "§6=== CoinFlip Stats Help ==="
+    own-stats: "§e/cfstats §7- View your stats"
+    player-stats: "§e/cfstats <player> §7- View another player's stats"
+    top-stats: "§e/cfstats top §7- View top players leaderboard"
+
+  display:
+    header: "§6=== Stats for {player} ==="
+    games-played: "§eGames Played: §f{games}"
+    wins: "§eWins: §a{wins}"
+    losses: "§eLosses: §c{losses}"
+    win-ratio: "§eWin Ratio: §f{ratio}%"
+    total-winnings: "§eTotal Winnings: §a{winnings}$"
+    total-losses: "§eTotal Losses: §c{losses}$"
+    net-profit: "§eNet Profit: §f{profit}$"
+    best-win: "§eBest Win: §a{best}$"
+
+  top:
+    no-data: "§7No data available."
+    wins-header: "§6=== Top {count} Players by Wins ==="
+    wins-format: "§e{position}. §f{name} §7- §a{wins} wins"
+    profit-header: "§6=== Top {count} Players by Profit ==="
+    profit-format: "§e{position}. §f{name} §7- §a{profit}$"
+    ratio-header: "§6=== Top {count} Win Ratio (min. {min} games) ==="
+    ratio-format: "§e{position}. §f{name} §7- §a{ratio}% §7({wins}/{games})"
+    wins-top-header: "§6=== Top 5 Players by Wins ==="
+    wins-top-format: "§e{position}. §f{name} §7- §a{wins} wins"
+    profit-top-header: "§6=== Top 5 Players by Profit ==="
+    profit-top-format: "§e{position}. §f{name} §7- §a{profit}$"
+    ratio-top-header: "§6=== Top 5 Players by Ratio (min. 10 games) ==="
+    ratio-top-format: "§e{position}. §f{name} §7- §a{ratio}% §7({wins}/{games})"
+
+history:
+  player-only: "§cOnly players can use this command."
+  no-permission: "§cYou do not have permission to view others' history."
+  player-not-found: "§cPlayer not found or offline."
+
+  help:
+    header: "§6=== CoinFlip History Help ==="
+    own-history: "§e/cf history §7- View your game history"
+    player-history: "§e/cf history <player> §7- View another player's history"
+
+animation:
+  info-title: "§6§lInformation"
+  amount-label: "§7Bet Amount: §6{amount}$"
+  player1-label: "§7Player 1: §e{player1}"
+  player2-label: "§7Player 2: §e{player2}"
+  in-progress: "§eDrawing in progress..."
+  result-title: "§6§lResult"
+  winner-label: "§a§lWinner: §e{winner}"
+  loser-label: "§c§lLoser: §e{loser}"
+  gain-label: "§6Gain: §e{gain}$"
