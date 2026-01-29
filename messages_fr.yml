@@ -10,78 +10,165 @@ general:
   back: "<soft_red>&lRetour"
 
 gui:
+  # Configuration du verre de fond
+  glass:
+    material: "GRAY_STAINED_GLASS_PANE"
+
+  # Menu principal
   main-menu:
+    size: 54
     title: "&rCoinFlip"
+
+    slots:
+      create: 11
+      join: 13
+      stats: 15
+      top: 22
+      history: 31
+
     items:
       create:
+        material: "GOLD_INGOT"
         name: "<soft_yellow>&lCréer une partie"
         lore:
           - "&7Créer une nouvelle partie"
           - "&7avec la mise de ton choix"
           - "<soft_red>Clique pour créer"
+        glow: true
 
       join:
+        material: "EMERALD"
         name: "<soft_yellow>&lRejoindre une partie"
         lore:
           - "&7Rejoindre une partie existante"
           - ""
           - "<soft_red>Clique pour rejoindre"
+        glow: true
 
       stats:
+        material: "BOOK"
         name: "<soft_yellow>&lStatistiques"
         lore:
           - "&7Voir tes statistiques"
+        glow: true
 
       top:
+        material: "DIAMOND"
         name: "<soft_yellow>&lClassement"
         lore:
           - "&7Voir les meilleurs joueurs"
+        glow: true
+
       history:
+        material: "PAPER"
         name: "<soft_yellow>&lHistorique"
         lore:
           - "&7Consultez vos 50 derniers"
           - "&7résultats de parties."
+        glow: true
+
+  # Menu de création
   create-menu:
     title: "&rCréation de coinflip"
+
+    slots:
+      info: 4
+      back: 22
+
     info:
+      material: "PAPER"
       name: "<soft_yellow>&lChoisis ta mise"
       lore:
         - "&7Mise minimum: <soft_red>%min-bet%"
         - "&7Mise maximum: <soft_red>%max-bet%"
 
+    amounts: [100, 500, 1000, 5000, 10000, 50000, 100000]
+    amount-slots: [10, 11, 12, 13, 14, 15, 16]
+    amount-glow: true
+    amount-name: "&6&l%amount% ⛃"
     amount-lore: "&7Clique pour créer une partie avec cette mise"
+
     back:
+      material: "ARROW"
       name: "<soft_red>&lRetour"
       lore:
         - "&7Retour au menu principal"
+      glow: true
 
+  # Menu des statistiques
   stats-menu:
     title: "&rStatistiques"
-    back:
-      name: "&c&lRetour"
-      lore:
-        - "&7Retour au menu principal"
+
+    slots:
+      wins: 10
+      losses: 12
+      ratio: 14
+      total-bet: 16
+      profit: 22
+      head: 4
+      back: 26
+
     items:
       wins:
+        material: "EMERALD"
         name: "&e&lVictoires: &f%wins%"
         lore:
           - "&7Parties gagnées"
+
       losses:
+        material: "REDSTONE_BLOCK"
         name: "&c&lDéfaites: &f%losses%"
         lore:
           - "&7Parties perdues"
+
       ratio:
+        material: "EXPERIENCE_BOTTLE"
         name: "&e&lRatio: &f%ratio%%"
         lore:
           - "&7Taux de victoire"
+
       total-bet:
+        material: "GOLD_BLOCK"
         name: "&e&lTotal misé: &f%total-bet%"
         lore:
           - "&7Montant total misé"
 
+      profit:
+        material: "EMERALD"
+        name: "%color%&lProfit: &f%profit%⛃"
+        lore:
+          - "&7Bénéfice net"
+
+      head:
+        material: "PLAYER_HEAD"
+        name: "&6&l%player%"
+        lore:
+          - "&7Statistiques CoinFlip"
+          - "&7Victoires: &a%wins%"
+          - "&7Défaites: &c%losses%"
+          - "&7Ratio: &e%ratio%%"
+          - "&7Profit: &b%profit%⛃"
+
+    back:
+      material: "ARROW"
+      name: "&c&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+      glow: true
+
+  # Menu de rejoindre
   join-menu:
     title: "&rCoinFlip disponible"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      no-games: 22
+      back: 49
+
     game-item:
+      material: "GOLD_NUGGET"
       name: "<soft_red>&lPartie #%id%"
       lore:
         - "&7Créateur: &f%creator%"
@@ -89,27 +176,93 @@ gui:
         - "&7Statut: &aEn attente"
         - ""
         - "<soft_red>Clique pour rejoindre"
+      glow: true
 
     no-games:
+      material: "BARRIER"
       name: "<soft_red>&lAucune partie disponible"
       lore:
         - "&7Aucune partie en attente"
         - ""
         - "<soft_yellow>Utilise /coinflip create"
+      glow: false
 
     back:
+      material: "ARROW"
       name: "<soft_yellow>&lRetour"
       lore:
         - "&7Retour au menu principal"
-    click-to-join: "<soft_red>Clique pour rejoindre"
+      glow: true
 
+    click-to-join:
+      - "<soft_red>Clique pour rejoindre"
+
+  # Menu classement
+  top-menu:
+    title: "&rClassement CoinFlip"
+
+    slots:
+      start: 10
+      per-row: 7
+      row-increment: 2
+      back: 49
+
+    items:
+      head:
+        material: "PLAYER_HEAD"
+        name: "&8#%position%. &6&l%player%"
+        lore:
+          - "&7Victoires: &a%wins%"
+          - "&7Défaites: &c%losses%"
+          - "&7Ratio: &e%ratio%%"
+          - "&7Profit: &b%profit%⛃"
+          - ""
+          - "&eClique pour voir les stats"
+
+    back:
+      material: "ARROW"
+      name: "<soft_yellow>&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+      glow: true
+
+  # Menu historique
   history-menu:
     title: "&rHistorique"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      back: 49
+
+    items:
+      win:
+        material: "EMERALD"
+        name: "&a&lVICTOIRE"
+        lore:
+          - "&7Contre: &f%opponent%"
+          - "&7Mise: &e%amount%⛃"
+          - "&7Date: &8%time%"
+          - ""
+          - "&7Gain: &a+%gain%"
+
+      loss:
+        material: "REDSTONE"
+        name: "&c&lDÉFAITE"
+        lore:
+          - "&7Contre: &f%opponent%"
+          - "&7Mise: &e%amount%⛃"
+          - "&7Date: &8%time%"
+          - ""
+          - "&7Perte: &c-%perte%"
+
     back:
+      material: "ARROW"
       name: "<soft_red>&lRetour"
       lore:
         - "&7Retour au menu principal"
-    
+      glow: true
 
 # 🎭 Prefix
 prefix: "<soft_yellow>&lCoinFlip &f» "
@@ -117,12 +270,60 @@ prefix: "<soft_yellow>&lCoinFlip &f» "
 # ======================================
 # 🎯 Commandes
 # ======================================
+# Messages du système de mise à jour
+update-notifier:
+  checking: "&7Vérification des mises à jour..."
+  no-update: "&a✓ CoinFlip est à jour !"
+  error: "&cErreur lors de la vérification des mises à jour: %error%"
+  console-message: |
+    <soft_yellow>CoinFlip Update &f» &eUne nouvelle version est disponible !
+    &7Version actuelle: &f%current_version%
+    &7Nouvelle version: &a%new_version%
+    &7Télécharger: &b%link%
+    &7Exécutez &a/coinflip about &7pour plus d'informations.
+  join-message: |
+    <soft_yellow>CoinFlip Update &f» &eUne nouvelle version (%new_version%) est disponible !
+    &7Version actuelle: &f%current_version%
+    &7Télécharger: &b%link%
+  dev-warning: "&c⚠ Vous utilisez une version &lDEVELOPMENT&c, des bugs peuvent survenir !"
+
+# Messages de la commande /coinflip about
 commands:
-  no-permission: "%prefix%&cPermission requise: &4%permission%"
+  about:
+    header: |
+      <yellow>&lInformations CoinFlip
+    content: |
+      <soft_yellow>&l• Informations du plugin :
+      &7  Version : &f%version%
+      &7  Notifications de mise à jour : %update_notify%
+      &7  Mise à jour disponible : %update_available%
+
+      <soft_yellow>&l• Informations du serveur :
+      &7  Type de serveur : &f%server_type%
+      &7  Version du serveur : &f%server_version%
+      &7  Système de taxe : &f%tax%%
+
+      <soft_yellow>&l• Paramètres du jeu :
+      &7  Mise minimale : &f%min_bet%
+      &7  Mise maximale : &f%max_bet%
+
+      <soft_yellow>&l• Intégrations :
+      &7  Vault : %vault%
+      &7  LuckPerms : %luckperms%
+      &7  PlaceholderAPI : %placeholderapi%
+
+      <soft_yellow>&l• Base de données :
+      &7  Activée : %database%
+      &7  Type : %db_type%
+    footer: "<yellow>&l└────────────────────────────────────┘"
+    dev-warning: "<red>⚠ &cCeci est une version de DÉVELOPPEMENT, des bugs peuvent survenir !"
+
+  no-permission: "%prefix%&cPermission requise : &4%permission%"
   player-only: "%prefix%&cCommande réservée aux joueurs"
   reload: "%prefix%&aConfiguration rechargée &7(%time%ms)"
-  usage: "&7Usage: &f%usage%"
+  usage: "&7Utilisation : &f%usage%"
   cooldown: "%prefix%&cVeuillez patienter avant de réutiliser cette commande"
+
 
 # ======================================
 # 🎰 Jeu
@@ -205,4 +406,3 @@ admin:
   leaderboard-reset: "%prefix%&aClassement réinitialisé"
   force-cancel: "%prefix%&aPartie #%id% annulée"
   reload: "%prefix%&aConfiguration rechargée"
-
