@@ -1,86 +1,169 @@
-# CoinFlip Messages - English
+# English Messages - CoinFlip
 # ======================================
 # 🌟 COINFLIP — Design by Noxuwt
 # ======================================
 
+# ======================================
+# 🎨 INTERFACE (GUI)
+# ======================================
 general:
   back: "<soft_red>&lBack"
 
 gui:
+  glass:
+    material: "GRAY_STAINED_GLASS_PANE"
+
   main-menu:
+    size: 54
     title: "&rCoinFlip"
+
+    slots:
+      create: 11
+      join: 13
+      stats: 15
+      top: 22
+      history: 31
+
     items:
       create:
+        material: "GOLD_INGOT"
         name: "<soft_yellow>&lCreate a game"
         lore:
           - "&7Create a new game"
           - "&7with the bet of your choice"
           - "<soft_red>Click to create"
+        glow: true
 
       join:
+        material: "EMERALD"
         name: "<soft_yellow>&lJoin a game"
         lore:
           - "&7Join an existing game"
           - ""
           - "<soft_red>Click to join"
+        glow: true
 
       stats:
+        material: "BOOK"
         name: "<soft_yellow>&lStatistics"
         lore:
           - "&7View your statistics"
+        glow: true
 
       top:
+        material: "DIAMOND"
         name: "<soft_yellow>&lLeaderboard"
         lore:
-          - "&7View the top players"
+          - "&7View the best players"
+        glow: true
 
       history:
+        material: "PAPER"
         name: "<soft_yellow>&lHistory"
         lore:
           - "&7View your last 50"
           - "&7game results."
+        glow: true
 
   create-menu:
-    title: "&rCreate CoinFlip"
+    title: "&rCoinFlip Creation"
+
+    slots:
+      info: 4
+      back: 22
+
     info:
+      material: "PAPER"
       name: "<soft_yellow>&lChoose your bet"
       lore:
         - "&7Minimum bet: <soft_red>%min-bet%"
         - "&7Maximum bet: <soft_red>%max-bet%"
 
+    amounts: [100, 500, 1000, 5000, 10000, 50000, 100000]
+    amount-slots: [10, 11, 12, 13, 14, 15, 16]
+    amount-glow: true
+    amount-name: "&6&l%amount% ⛃"
     amount-lore: "&7Click to create a game with this bet"
+
     back:
+      material: "ARROW"
       name: "<soft_red>&lBack"
       lore:
-        - "&7Back to main menu"
+        - "&7Return to the main menu"
+      glow: true
 
   stats-menu:
     title: "&rStatistics"
-    back:
-      name: "&c&lBack"
-      lore:
-        - "&7Back to main menu"
+
+    slots:
+      wins: 10
+      losses: 12
+      ratio: 14
+      total-bet: 16
+      profit: 22
+      head: 4
+      back: 26
+
     items:
       wins:
+        material: "EMERALD"
         name: "&e&lWins: &f%wins%"
         lore:
           - "&7Games won"
+
       losses:
+        material: "REDSTONE_BLOCK"
         name: "&c&lLosses: &f%losses%"
         lore:
           - "&7Games lost"
+
       ratio:
-        name: "&e&lRatio: &f%ratio%%"
+        material: "EXPERIENCE_BOTTLE"
+        name: "&e&lWin rate: &f%ratio%%"
         lore:
-          - "&7Win rate"
+          - "&7Victory percentage"
+
       total-bet:
-        name: "&e&lTotal Bet: &f%total-bet%"
+        material: "GOLD_BLOCK"
+        name: "&e&lTotal wagered: &f%total-bet%"
         lore:
-          - "&7Total amount wagered"
+          - "&7Total amount bet"
+
+      profit:
+        material: "EMERALD"
+        name: "%color%&lProfit: &f%profit%⛃"
+        lore:
+          - "&7Net earnings"
+
+      head:
+        material: "PLAYER_HEAD"
+        name: "&6&l%player%"
+        lore:
+          - "&7CoinFlip statistics"
+          - "&7Wins: &a%wins%"
+          - "&7Losses: &c%losses%"
+          - "&7Win rate: &e%ratio%%"
+          - "&7Profit: &b%profit%⛃"
+
+    back:
+      material: "ARROW"
+      name: "&c&lBack"
+      lore:
+        - "&7Return to the main menu"
+      glow: true
 
   join-menu:
     title: "&rAvailable CoinFlips"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      no-games: 22
+      back: 49
+
     game-item:
+      material: "GOLD_NUGGET"
       name: "<soft_red>&lGame #%id%"
       lore:
         - "&7Creator: &f%creator%"
@@ -88,36 +171,87 @@ gui:
         - "&7Status: &aWaiting"
         - ""
         - "<soft_red>Click to join"
+      glow: true
 
     no-games:
+      material: "BARRIER"
       name: "<soft_red>&lNo games available"
       lore:
-        - "&7No games waiting"
+        - "&7No pending games"
         - ""
         - "<soft_yellow>Use /coinflip create"
+      glow: false
 
     back:
+      material: "ARROW"
       name: "<soft_yellow>&lBack"
       lore:
-        - "&7Back to main menu"
-    click-to-join: "<soft_red>Click to join"
+        - "&7Return to the main menu"
+      glow: true
 
-  history-menu:
-    title: "&rHistory"
-    back:
-      name: "<soft_red>&lBack"
-      lore:
-        - "&7Back to main menu"
-
+# ======================================
+# 🎭 Prefix
+# ======================================
 prefix: "<soft_yellow>&lCoinFlip &f» "
 
+# ======================================
+# 🎯 Commands
+# ======================================
+update-notifier:
+  checking: "&7Checking for updates..."
+  no-update: "&a✓ CoinFlip is up to date!"
+  error: "&cError while checking updates: %error%"
+  console-message: |
+    <soft_yellow>CoinFlip Update &f» &eA new version is available!
+    &7Current version: &f%current_version%
+    &7New version: &a%new_version%
+    &7Download: &b%link%
+    &7Run &a/coinflip about &7for more information.
+  join-message: |
+    <soft_yellow>CoinFlip Update &f» &eA new version (%new_version%) is available!
+    &7Current version: &f%current_version%
+    &7Download: &b%link%
+  dev-warning: "&c⚠ You are using a &lDEVELOPMENT&c version, bugs may occur!"
+
 commands:
+  about:
+    header: |
+      <yellow>&lCoinFlip Information
+    content: |
+      <soft_yellow>&l• Plugin information:
+      &7  Version: &f%version%
+      &7  Update notifications: %update_notify%
+      &7  Update available: %update_available%
+
+      <soft_yellow>&l• Server information:
+      &7  Server type: &f%server_type%
+      &7  Server version: &f%server_version%
+      &7  Tax system: &f%tax%%
+
+      <soft_yellow>&l• Game settings:
+      &7  Minimum bet: &f%min_bet%
+      &7  Maximum bet: &f%max_bet%
+
+      <soft_yellow>&l• Integrations:
+      &7  Vault: %vault%
+      &7  LuckPerms: %luckperms%
+      &7  PlaceholderAPI: %placeholderapi%
+
+      <soft_yellow>&l• Database:
+      &7  Enabled: %database%
+      &7  Type: %db_type%
+    footer: "<yellow>&l└────────────────────────────────────┘"
+    dev-warning: "<red>⚠ &cThis is a DEVELOPMENT version, bugs may occur!"
+
   no-permission: "%prefix%&cPermission required: &4%permission%"
   player-only: "%prefix%&cCommand for players only"
   reload: "%prefix%&aConfiguration reloaded &7(%time%ms)"
   usage: "&7Usage: &f%usage%"
-  cooldown: "%prefix%&cPlease wait before reusing this command"
+  cooldown: "%prefix%&cPlease wait before using this command again"
 
+# ======================================
+# 🎰 Game
+# ======================================
 game:
   create:
     invalid-amount: "%prefix%&cInvalid amount &7(%min%-%max%)"
@@ -143,11 +277,17 @@ game:
 
   refunded: "%prefix%&aBet of &f%amount% &arefunded"
 
+# ======================================
+# 🏆 Leaderboard
+# ======================================
 top:
   title: "&rCoinFlip Leaderboard"
   entry: "&8#%pos%. &f%player% &8- &f%amount% &7(%wins%✔)"
   empty: "&7No ranked players"
 
+# ======================================
+# ❓ Help
+# ======================================
 help:
   title: "<yellow>❓ CoinFlip Help"
   lines: |
@@ -159,6 +299,9 @@ help:
     <soft_yellow>/coinflip history
     <soft_yellow>/coinflip cancel
 
+# ======================================
+# 📜 History
+# ======================================
 history:
   title: "&rHistory"
   entry: "&7[%time%] %result% &7vs &f%opponent% &7(%amount%)"
@@ -166,6 +309,9 @@ history:
   loss: "&c✘ LOST"
   empty: "&7No games played"
 
+# ======================================
+# ⚠️ Errors
+# ======================================
 errors:
   cannot-join-own-game: "%prefix%&cYou cannot join your own coinflip."
   invalid-command: "%prefix%&cInvalid command"
@@ -175,6 +321,9 @@ errors:
   economy: "%prefix%&cEconomy error"
   internal: "%prefix%&cInternal error &7(%code%)"
 
+# ======================================
+# 🔧 Admin
+# ======================================
 admin:
   stats-reset: "%prefix%&aStats of %player% reset"
   leaderboard-reset: "%prefix%&aLeaderboard reset"
