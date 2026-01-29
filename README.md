@@ -1,0 +1,2 @@
+# CoinFlip
+Language Messages
