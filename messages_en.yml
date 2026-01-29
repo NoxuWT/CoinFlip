@@ -1,0 +1,182 @@
+# CoinFlip Messages - English
+# ======================================
+# 🌟 COINFLIP — Design by Noxuwt
+# ======================================
+
+general:
+  back: "<soft_red>&lBack"
+
+gui:
+  main-menu:
+    title: "&rCoinFlip"
+    items:
+      create:
+        name: "<soft_yellow>&lCreate a game"
+        lore:
+          - "&7Create a new game"
+          - "&7with the bet of your choice"
+          - "<soft_red>Click to create"
+
+      join:
+        name: "<soft_yellow>&lJoin a game"
+        lore:
+          - "&7Join an existing game"
+          - ""
+          - "<soft_red>Click to join"
+
+      stats:
+        name: "<soft_yellow>&lStatistics"
+        lore:
+          - "&7View your statistics"
+
+      top:
+        name: "<soft_yellow>&lLeaderboard"
+        lore:
+          - "&7View the top players"
+
+      history:
+        name: "<soft_yellow>&lHistory"
+        lore:
+          - "&7View your last 50"
+          - "&7game results."
+
+  create-menu:
+    title: "&rCreate CoinFlip"
+    info:
+      name: "<soft_yellow>&lChoose your bet"
+      lore:
+        - "&7Minimum bet: <soft_red>%min-bet%"
+        - "&7Maximum bet: <soft_red>%max-bet%"
+
+    amount-lore: "&7Click to create a game with this bet"
+    back:
+      name: "<soft_red>&lBack"
+      lore:
+        - "&7Back to main menu"
+
+  stats-menu:
+    title: "&rStatistics"
+    back:
+      name: "&c&lBack"
+      lore:
+        - "&7Back to main menu"
+    items:
+      wins:
+        name: "&e&lWins: &f%wins%"
+        lore:
+          - "&7Games won"
+      losses:
+        name: "&c&lLosses: &f%losses%"
+        lore:
+          - "&7Games lost"
+      ratio:
+        name: "&e&lRatio: &f%ratio%%"
+        lore:
+          - "&7Win rate"
+      total-bet:
+        name: "&e&lTotal Bet: &f%total-bet%"
+        lore:
+          - "&7Total amount wagered"
+
+  join-menu:
+    title: "&rAvailable CoinFlips"
+    game-item:
+      name: "<soft_red>&lGame #%id%"
+      lore:
+        - "&7Creator: &f%creator%"
+        - "&7Bet: <soft_yellow>%amount%"
+        - "&7Status: &aWaiting"
+        - ""
+        - "<soft_red>Click to join"
+
+    no-games:
+      name: "<soft_red>&lNo games available"
+      lore:
+        - "&7No games waiting"
+        - ""
+        - "<soft_yellow>Use /coinflip create"
+
+    back:
+      name: "<soft_yellow>&lBack"
+      lore:
+        - "&7Back to main menu"
+    click-to-join: "<soft_red>Click to join"
+
+  history-menu:
+    title: "&rHistory"
+    back:
+      name: "<soft_red>&lBack"
+      lore:
+        - "&7Back to main menu"
+
+prefix: "<soft_yellow>&lCoinFlip &f» "
+
+commands:
+  no-permission: "%prefix%&cPermission required: &4%permission%"
+  player-only: "%prefix%&cCommand for players only"
+  reload: "%prefix%&aConfiguration reloaded &7(%time%ms)"
+  usage: "&7Usage: &f%usage%"
+  cooldown: "%prefix%&cPlease wait before reusing this command"
+
+game:
+  create:
+    invalid-amount: "%prefix%&cInvalid amount &7(%min%-%max%)"
+    no-money: "%prefix%&cInsufficient funds &7(&f%balance%&7)"
+    success: "%prefix%&aGame created &7(#&f%id%&7 | %amount%)"
+    cancelled: "%prefix%&cGame cancelled, bet refunded"
+    cooldown: "%prefix%&cWait %time% before creating another game"
+
+  join:
+    success: "%prefix%&7You joined game &e#%id%"
+    already: "%prefix%&cYou are already in a game"
+    full: "%prefix%&cGame is full"
+    not-found: "%prefix%&cGame not found or expired"
+
+  start:
+    countdown: "%prefix%&7Starting in &e3..."
+    started: "%prefix%&aThe game has started!"
+
+  result:
+    win: "%prefix%&aVictory &7(+%amount%)"
+    loss: "%prefix%&cDefeat &7(-%amount%)"
+    draw: "%prefix%&eDraw, bet refunded"
+
+  refunded: "%prefix%&aBet of &f%amount% &arefunded"
+
+top:
+  title: "&rCoinFlip Leaderboard"
+  entry: "&8#%pos%. &f%player% &8- &f%amount% &7(%wins%✔)"
+  empty: "&7No ranked players"
+
+help:
+  title: "<yellow>❓ CoinFlip Help"
+  lines: |
+    <soft_yellow>/coinflip <gray>- Main menu
+    <soft_yellow>/coinflip create <gray><amount>
+    <soft_yellow>/coinflip join <gray><id>
+    <soft_yellow>/coinflip stats <gray>[player]
+    <soft_yellow>/coinflip top <gray>[best] [profit] [total] [win]
+    <soft_yellow>/coinflip history
+    <soft_yellow>/coinflip cancel
+
+history:
+  title: "&rHistory"
+  entry: "&7[%time%] %result% &7vs &f%opponent% &7(%amount%)"
+  win: "&a✔ WON"
+  loss: "&c✘ LOST"
+  empty: "&7No games played"
+
+errors:
+  cannot-join-own-game: "%prefix%&cYou cannot join your own coinflip."
+  invalid-command: "%prefix%&cInvalid command"
+  invalid-number: "%prefix%&cInvalid number"
+  no-game: "%prefix%&cNo active game"
+  not-creator: "%prefix%&cYou are not the creator"
+  economy: "%prefix%&cEconomy error"
+  internal: "%prefix%&cInternal error &7(%code%)"
+
+admin:
+  stats-reset: "%prefix%&aStats of %player% reset"
+  leaderboard-reset: "%prefix%&aLeaderboard reset"
+  force-cancel: "%prefix%&aGame #%id% cancelled"
+  reload: "%prefix%&aConfiguration reloaded"
