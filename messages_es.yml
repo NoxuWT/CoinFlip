@@ -1,123 +1,333 @@
-# Mensajes CoinFlip - Español
+# Mensajes Español - CoinFlip
 # ======================================
-# 🌟 COINFLIP — Design by Noxuwt
+# 🌟 COINFLIP — Diseñado por Noxuwt
 # ======================================
 
+# ======================================
+# 🎨 INTERFAZ (GUI)
+# ======================================
 general:
   back: "<soft_red>&lVolver"
 
 gui:
+  # Configuración del vidrio de fondo
+  glass:
+    material: "GRAY_STAINED_GLASS_PANE"
+
+  # Menú principal
   main-menu:
+    size: 54
     title: "&rCoinFlip"
+
+    slots:
+      create: 11
+      join: 13
+      stats: 15
+      top: 22
+      history: 31
+
     items:
       create:
+        material: "GOLD_INGOT"
         name: "<soft_yellow>&lCrear partida"
         lore:
-          - "&7Crea una nueva partida"
-          - "&7con la apuesta que elijas"
+          - "&7Crear nueva partida"
+          - "&7con tu apuesta elegida"
           - "<soft_red>Clic para crear"
+        glow: true
 
       join:
-        name: "<soft_yellow>&lUnirse a una partida"
+        material: "EMERALD"
+        name: "<soft_yellow>&lUnirse a partida"
         lore:
-          - "&7Únete a una partida existente"
+          - "&7Unirse a partida existente"
           - ""
           - "<soft_red>Clic para unirse"
+        glow: true
 
       stats:
+        material: "BOOK"
         name: "<soft_yellow>&lEstadísticas"
         lore:
           - "&7Ver tus estadísticas"
+        glow: true
 
       top:
+        material: "DIAMOND"
         name: "<soft_yellow>&lClasificación"
         lore:
-          - "&7Ver los mejores jugadores"
+          - "&7Ver mejores jugadores"
+        glow: true
 
       history:
+        material: "PAPER"
         name: "<soft_yellow>&lHistorial"
         lore:
-          - "&7Consulta tus últimas 50"
-          - "&7partidas."
+          - "&7Ver tus últimas 50"
+          - "&7partidas jugadas."
+        glow: true
 
+  # Menú de creación
   create-menu:
-    title: "&rCrear CoinFlip"
+    title: "&rCrear Coinflip"
+
+    slots:
+      info: 4
+      back: 22
+
     info:
+      material: "PAPER"
       name: "<soft_yellow>&lElige tu apuesta"
       lore:
         - "&7Apuesta mínima: <soft_red>%min-bet%"
         - "&7Apuesta máxima: <soft_red>%max-bet%"
 
-    amount-lore: "&7Clic para crear una partida con esta apuesta"
+    amounts: [100, 500, 1000, 5000, 10000, 50000, 100000]
+    amount-slots: [10, 11, 12, 13, 14, 15, 16]
+    amount-glow: true
+    amount-name: "&6&l%amount% ⛃"
+    amount-lore: "&7Clic para crear partida con esta apuesta"
+
     back:
+      material: "ARROW"
       name: "<soft_red>&lVolver"
       lore:
         - "&7Volver al menú principal"
+      glow: true
 
+  # Menú de estadísticas
   stats-menu:
     title: "&rEstadísticas"
-    back:
-      name: "&c&lVolver"
-      lore:
-        - "&7Volver al menú principal"
+
+    slots:
+      wins: 10
+      losses: 12
+      ratio: 14
+      total-bet: 16
+      profit: 22
+      head: 4
+      back: 26
+
     items:
       wins:
+        material: "EMERALD"
         name: "&e&lVictorias: &f%wins%"
         lore:
           - "&7Partidas ganadas"
+
       losses:
+        material: "REDSTONE_BLOCK"
         name: "&c&lDerrotas: &f%losses%"
         lore:
           - "&7Partidas perdidas"
+
       ratio:
+        material: "EXPERIENCE_BOTTLE"
         name: "&e&lRatio: &f%ratio%%"
         lore:
-          - "&7Porcentaje de victoria"
+          - "&7Tasa de victoria"
+
       total-bet:
+        material: "GOLD_BLOCK"
         name: "&e&lTotal apostado: &f%total-bet%"
         lore:
           - "&7Cantidad total apostada"
 
+      profit:
+        material: "EMERALD"
+        name: "%color%&lBeneficio: &f%profit%⛃"
+        lore:
+          - "&7Beneficio neto"
+
+      head:
+        material: "PLAYER_HEAD"
+        name: "&6&l%player%"
+        lore:
+          - "&7Estadísticas CoinFlip"
+          - "&7Victorias: &a%wins%"
+          - "&7Derrotas: &c%losses%"
+          - "&7Ratio: &e%ratio%%"
+          - "&7Beneficio: &b%profit%⛃"
+
+    back:
+      material: "ARROW"
+      name: "&c&lVolver"
+      lore:
+        - "&7Volver al menú principal"
+      glow: true
+
+  # Menú de unirse
   join-menu:
-    title: "&rCoinFlips disponibles"
+    title: "&rCoinFlip disponible"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      no-games: 22
+      back: 49
+
     game-item:
+      material: "GOLD_NUGGET"
       name: "<soft_red>&lPartida #%id%"
       lore:
         - "&7Creador: &f%creator%"
         - "&7Apuesta: <soft_yellow>%amount%"
-        - "&7Estado: &aEn espera"
+        - "&7Estado: &aEsperando"
         - ""
         - "<soft_red>Clic para unirse"
+      glow: true
 
     no-games:
-      name: "<soft_red>&lNo hay partidas disponibles"
+      material: "BARRIER"
+      name: "<soft_red>&lNo hay partidas"
       lore:
-        - "&7No hay partidas en espera"
+        - "&7No hay partidas pendientes"
         - ""
         - "<soft_yellow>Usa /coinflip create"
+      glow: false
 
     back:
+      material: "ARROW"
       name: "<soft_yellow>&lVolver"
       lore:
         - "&7Volver al menú principal"
-    click-to-join: "<soft_red>Clic para unirse"
+      glow: true
 
+    click-to-join:
+      - "<soft_red>Clic para unirse"
+
+  # Menú clasificación
+  top-menu:
+    title: "&rClasificación CoinFlip"
+
+    slots:
+      start: 10
+      per-row: 7
+      row-increment: 2
+      back: 49
+
+    items:
+      head:
+        material: "PLAYER_HEAD"
+        name: "&8#%position%. &6&l%player%"
+        lore:
+          - "&7Victorias: &a%wins%"
+          - "&7Derrotas: &c%losses%"
+          - "&7Ratio: &e%ratio%%"
+          - "&7Beneficio: &b%profit%⛃"
+          - ""
+          - "&eClic para ver estadísticas"
+
+    back:
+      material: "ARROW"
+      name: "<soft_yellow>&lVolver"
+      lore:
+        - "&7Volver al menú principal"
+      glow: true
+
+  # Menú historial
   history-menu:
     title: "&rHistorial"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      back: 49
+
+    items:
+      win:
+        material: "EMERALD"
+        name: "&a&lVICTORIA"
+        lore:
+          - "&7Oponente: &f%opponent%"
+          - "&7Apuesta: &e%amount%⛃"
+          - "&7Fecha: &8%time%"
+          - ""
+          - "&7Ganancia: &a+%gain%"
+
+      loss:
+        material: "REDSTONE"
+        name: "&c&lDERROTA"
+        lore:
+          - "&7Oponente: &f%opponent%"
+          - "&7Apuesta: &e%amount%⛃"
+          - "&7Fecha: &8%time%"
+          - ""
+          - "&7Pérdida: &c-%perte%"
+
     back:
+      material: "ARROW"
       name: "<soft_red>&lVolver"
       lore:
         - "&7Volver al menú principal"
+      glow: true
 
+# 🎭 Prefijo
 prefix: "<soft_yellow>&lCoinFlip &f» "
 
+# ======================================
+# 🎯 Comandos
+# ======================================
+# Mensajes del sistema de actualización
+update-notifier:
+  checking: "&7Comprobando actualizaciones..."
+  no-update: "&a✓ CoinFlip está actualizado!"
+  error: "&cError al comprobar actualizaciones: %error%"
+  console-message: |
+    <soft_yellow>CoinFlip Update &f» &e¡Hay una nueva versión disponible!
+    &7Versión actual: &f%current_version%
+    &7Nueva versión: &a%new_version%
+    &7Descargar: &b%link%
+    &7Ejecuta &a/coinflip about &7para más información.
+  join-message: |
+    <soft_yellow>CoinFlip Update &f» &e¡Hay una nueva versión (%new_version%) disponible!
+    &7Versión actual: &f%current_version%
+    &7Descargar: &b%link%
+  dev-warning: "&c⚠ ¡Estás usando una versión &lDEVELOPMENT&c, pueden haber errores!"
+
+# Mensajes del comando /coinflip about
 commands:
+  about:
+    header: |
+      <yellow>&lInformación de CoinFlip
+    content: |
+      <soft_yellow>&l• Información del plugin:
+      &7  Versión: &f%version%
+      &7  Notificaciones de actualización: %update_notify%
+      &7  Actualización disponible: %update_available%
+
+      <soft_yellow>&l• Información del servidor:
+      &7  Tipo de servidor: &f%server_type%
+      &7  Versión del servidor: &f%server_version%
+      &7  Sistema de impuestos: &f%tax%%
+
+      <soft_yellow>&l• Configuración del juego:
+      &7  Apuesta mínima: &f%min_bet%
+      &7  Apuesta máxima: &f%max_bet%
+
+      <soft_yellow>&l• Integraciones:
+      &7  Vault: %vault%
+      &7  LuckPerms: %luckperms%
+      &7  PlaceholderAPI: %placeholderapi%
+
+      <soft_yellow>&l• Base de datos:
+      &7  Activada: %database%
+      &7  Tipo: %db_type%
+    footer: "<yellow>&l└────────────────────────────────────┘"
+    dev-warning: "<red>⚠ &c¡Esta es una versión de DESARROLLO, pueden haber errores!"
+
   no-permission: "%prefix%&cPermiso requerido: &4%permission%"
   player-only: "%prefix%&cComando solo para jugadores"
   reload: "%prefix%&aConfiguración recargada &7(%time%ms)"
   usage: "&7Uso: &f%usage%"
-  cooldown: "%prefix%&cEspera antes de usar este comando nuevamente"
+  cooldown: "%prefix%&cEspera antes de usar este comando otra vez"
 
+
+# ======================================
+# 🎰 Juego
+# ======================================
 game:
   create:
     invalid-amount: "%prefix%&cCantidad inválida &7(%min%-%max%)"
@@ -129,12 +339,12 @@ game:
   join:
     success: "%prefix%&7Te uniste a la partida &e#%id%"
     already: "%prefix%&cYa estás en una partida"
-    full: "%prefix%&cLa partida está llena"
+    full: "%prefix%&cPartida llena"
     not-found: "%prefix%&cPartida no encontrada o expirada"
 
   start:
-    countdown: "%prefix%&7Comienza en &e3..."
-    started: "%prefix%&a¡La partida ha comenzado!"
+    countdown: "%prefix%&7Comenzando en &e3..."
+    started: "%prefix%&a¡La partida comienza!"
 
   result:
     win: "%prefix%&aVictoria &7(+%amount%)"
@@ -143,11 +353,18 @@ game:
 
   refunded: "%prefix%&aApuesta de &f%amount% &adevuelta"
 
+
+# ======================================
+# 🏆 Clasificación
+# ======================================
 top:
   title: "&rClasificación CoinFlip"
   entry: "&8#%pos%. &f%player% &8- &f%amount% &7(%wins%✔)"
-  empty: "&7Ningún jugador clasificado"
+  empty: "&7No hay jugadores clasificados"
 
+# ======================================
+# ❓ Ayuda
+# ======================================
 help:
   title: "<yellow>❓ Ayuda CoinFlip"
   lines: |
@@ -159,22 +376,31 @@ help:
     <soft_yellow>/coinflip history
     <soft_yellow>/coinflip cancel
 
+# ======================================
+# 📜 Historial
+# ======================================
 history:
   title: "&rHistorial"
   entry: "&7[%time%] %result% &7vs &f%opponent% &7(%amount%)"
   win: "&a✔ GANADO"
   loss: "&c✘ PERDIDO"
-  empty: "&7No se han jugado partidas"
+  empty: "&7No hay partidas jugadas"
 
+# ======================================
+# ⚠️ Errores
+# ======================================
 errors:
   cannot-join-own-game: "%prefix%&cNo puedes unirte a tu propio coinflip."
   invalid-command: "%prefix%&cComando inválido"
   invalid-number: "%prefix%&cNúmero inválido"
-  no-game: "%prefix%&cNo hay partidas activas"
+  no-game: "%prefix%&cNo hay partida activa"
   not-creator: "%prefix%&cNo eres el creador"
-  economy: "%prefix%&cError de economía"
+  economy: "%prefix%&cError económico"
   internal: "%prefix%&cError interno &7(%code%)"
 
+# ======================================
+# 🔧 Admin
+# ======================================
 admin:
   stats-reset: "%prefix%&aEstadísticas de %player% reiniciadas"
   leaderboard-reset: "%prefix%&aClasificación reiniciada"
