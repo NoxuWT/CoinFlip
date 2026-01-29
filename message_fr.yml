@@ -1,0 +1,208 @@
+# Messages français - CoinFlip
+# ======================================
+# 🌟 COINFLIP — Design by Noxuwt
+# ======================================
+
+# ======================================
+# 🎨 INTERFACE (GUI)
+# ======================================
+general:
+  back: "<soft_red>&lRetour"
+
+gui:
+  main-menu:
+    title: "&rCoinFlip"
+    items:
+      create:
+        name: "<soft_yellow>&lCréer une partie"
+        lore:
+          - "&7Créer une nouvelle partie"
+          - "&7avec la mise de ton choix"
+          - "<soft_red>Clique pour créer"
+
+      join:
+        name: "<soft_yellow>&lRejoindre une partie"
+        lore:
+          - "&7Rejoindre une partie existante"
+          - ""
+          - "<soft_red>Clique pour rejoindre"
+
+      stats:
+        name: "<soft_yellow>&lStatistiques"
+        lore:
+          - "&7Voir tes statistiques"
+
+      top:
+        name: "<soft_yellow>&lClassement"
+        lore:
+          - "&7Voir les meilleurs joueurs"
+      history:
+        name: "<soft_yellow>&lHistorique"
+        lore:
+          - "&7Consultez vos 50 derniers"
+          - "&7résultats de parties."
+  create-menu:
+    title: "&rCréation de coinflip"
+    info:
+      name: "<soft_yellow>&lChoisis ta mise"
+      lore:
+        - "&7Mise minimum: <soft_red>%min-bet%"
+        - "&7Mise maximum: <soft_red>%max-bet%"
+
+    amount-lore: "&7Clique pour créer une partie avec cette mise"
+    back:
+      name: "<soft_red>&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+
+  stats-menu:
+    title: "&rStatistiques"
+    back:
+      name: "&c&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+    items:
+      wins:
+        name: "&e&lVictoires: &f%wins%"
+        lore:
+          - "&7Parties gagnées"
+      losses:
+        name: "&c&lDéfaites: &f%losses%"
+        lore:
+          - "&7Parties perdues"
+      ratio:
+        name: "&e&lRatio: &f%ratio%%"
+        lore:
+          - "&7Taux de victoire"
+      total-bet:
+        name: "&e&lTotal misé: &f%total-bet%"
+        lore:
+          - "&7Montant total misé"
+
+  join-menu:
+    title: "&rCoinFlip disponible"
+    game-item:
+      name: "<soft_red>&lPartie #%id%"
+      lore:
+        - "&7Créateur: &f%creator%"
+        - "&7Mise: <soft_yellow>%amount%"
+        - "&7Statut: &aEn attente"
+        - ""
+        - "<soft_red>Clique pour rejoindre"
+
+    no-games:
+      name: "<soft_red>&lAucune partie disponible"
+      lore:
+        - "&7Aucune partie en attente"
+        - ""
+        - "<soft_yellow>Utilise /coinflip create"
+
+    back:
+      name: "<soft_yellow>&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+    click-to-join: "<soft_red>Clique pour rejoindre"
+
+  history-menu:
+    title: "&rHistorique"
+    back:
+      name: "<soft_red>&lRetour"
+      lore:
+        - "&7Retour au menu principal"
+    
+
+# 🎭 Prefix
+prefix: "<soft_yellow>&lCoinFlip &f» "
+
+# ======================================
+# 🎯 Commandes
+# ======================================
+commands:
+  no-permission: "%prefix%&cPermission requise: &4%permission%"
+  player-only: "%prefix%&cCommande réservée aux joueurs"
+  reload: "%prefix%&aConfiguration rechargée &7(%time%ms)"
+  usage: "&7Usage: &f%usage%"
+  cooldown: "%prefix%&cVeuillez patienter avant de réutiliser cette commande"
+
+# ======================================
+# 🎰 Jeu
+# ======================================
+game:
+  create:
+    invalid-amount: "%prefix%&cMontant invalide &7(%min%-%max%)"
+    no-money: "%prefix%&cFonds insuffisants &7(&f%balance%&7)"
+    success: "%prefix%&aPartie créée &7(#&f%id%&7 | %amount%)"
+    cancelled: "%prefix%&cPartie annulée, mise remboursée"
+    cooldown: "%prefix%&cAttendez %time% avant de recréer une partie"
+
+  join:
+    success: "%prefix%&7Vous avez rejoint la partie &e#%id%"
+    already: "%prefix%&cVous êtes déjà en partie"
+    full: "%prefix%&cPartie complète"
+    not-found: "%prefix%&cPartie introuvable ou expirée"
+
+  start:
+    countdown: "%prefix%&7Démarrage dans &e3..."
+    started: "%prefix%&aLa partie commence !"
+
+  result:
+    win: "%prefix%&aVictoire &7(+%amount%)"
+    loss: "%prefix%&cDéfaite &7(-%amount%)"
+    draw: "%prefix%&eMatch nul, mise rendue"
+
+  refunded: "%prefix%&aMise de &f%amount% &aremise"
+
+
+# ======================================
+# 🏆 Classement
+# ======================================
+top:
+  title: "&rClassement CoinFlip"
+  entry: "&8#%pos%. &f%player% &8- &f%amount% &7(%wins%✔)"
+  empty: "&7Aucun joueur classé"
+
+# ======================================
+# ❓ Aide
+# ======================================
+help:
+  title: "<yellow>❓ Aide CoinFlip"
+  lines: |
+    <soft_yellow>/coinflip <gray>- Menu principal
+    <soft_yellow>/coinflip create <gray><montant>
+    <soft_yellow>/coinflip join <gray><id>
+    <soft_yellow>/coinflip stats <gray>[joueur]
+    <soft_yellow>/coinflip top <gray>[best] [profit] [total] [win]
+    <soft_yellow>/coinflip history
+    <soft_yellow>/coinflip cancel 
+
+# ======================================
+# 📜 Historique
+# ======================================
+history:
+  title: "&rHistorique"
+  entry: "&7[%time%] %result% &7vs &f%opponent% &7(%amount%)"
+  win: "&a✔ GAGNÉ"
+  loss: "&c✘ PERDU"
+  empty: "&7Aucune partie jouée"
+
+# ======================================
+# ⚠️ Erreurs
+# ======================================
+errors:
+  cannot-join-own-game: "%prefix%&cVous ne pouvez pas rejoindre votre coinflip."
+  invalid-command: "%prefix%&cCommande invalide"
+  invalid-number: "%prefix%&cNombre invalide"
+  no-game: "%prefix%&cAucune partie active"
+  not-creator: "%prefix%&cVous n'êtes pas le créateur"
+  economy: "%prefix%&cErreur économique"
+  internal: "%prefix%&cErreur interne &7(%code%)"
+
+# ======================================
+# 🔧 Admin
+# ======================================
+admin:
+  stats-reset: "%prefix%&aStats de %player% réinitialisées"
+  leaderboard-reset: "%prefix%&aClassement réinitialisé"
+  force-cancel: "%prefix%&aPartie #%id% annulée"
+  reload: "%prefix%&aConfiguration rechargée"
+
