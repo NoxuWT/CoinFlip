@@ -10,9 +10,11 @@ general:
   back: "<soft_red>&lBack"
 
 gui:
+  # Background glass configuration
   glass:
     material: "GRAY_STAINED_GLASS_PANE"
 
+  # Main menu
   main-menu:
     size: 54
     title: "&rCoinFlip"
@@ -27,16 +29,16 @@ gui:
     items:
       create:
         material: "GOLD_INGOT"
-        name: "<soft_yellow>&lCreate a game"
+        name: "<soft_yellow>&lCreate Game"
         lore:
           - "&7Create a new game"
-          - "&7with the bet of your choice"
+          - "&7with your chosen bet"
           - "<soft_red>Click to create"
         glow: true
 
       join:
         material: "EMERALD"
-        name: "<soft_yellow>&lJoin a game"
+        name: "<soft_yellow>&lJoin Game"
         lore:
           - "&7Join an existing game"
           - ""
@@ -54,7 +56,7 @@ gui:
         material: "DIAMOND"
         name: "<soft_yellow>&lLeaderboard"
         lore:
-          - "&7View the best players"
+          - "&7View top players"
         glow: true
 
       history:
@@ -65,8 +67,9 @@ gui:
           - "&7game results."
         glow: true
 
+  # Creation menu
   create-menu:
-    title: "&rCoinFlip Creation"
+    title: "&rCreate Coinflip"
 
     slots:
       info: 4
@@ -83,15 +86,16 @@ gui:
     amount-slots: [10, 11, 12, 13, 14, 15, 16]
     amount-glow: true
     amount-name: "&6&l%amount% ⛃"
-    amount-lore: "&7Click to create a game with this bet"
+    amount-lore: "&7Click to create game with this bet"
 
     back:
       material: "ARROW"
       name: "<soft_red>&lBack"
       lore:
-        - "&7Return to the main menu"
+        - "&7Return to main menu"
       glow: true
 
+  # Statistics menu
   stats-menu:
     title: "&rStatistics"
 
@@ -119,13 +123,13 @@ gui:
 
       ratio:
         material: "EXPERIENCE_BOTTLE"
-        name: "&e&lWin rate: &f%ratio%%"
+        name: "&e&lWin Rate: &f%ratio%%"
         lore:
-          - "&7Victory percentage"
+          - "&7Victory rate"
 
       total-bet:
         material: "GOLD_BLOCK"
-        name: "&e&lTotal wagered: &f%total-bet%"
+        name: "&e&lTotal Bet: &f%total-bet%"
         lore:
           - "&7Total amount bet"
 
@@ -133,27 +137,28 @@ gui:
         material: "EMERALD"
         name: "%color%&lProfit: &f%profit%⛃"
         lore:
-          - "&7Net earnings"
+          - "&7Net profit"
 
       head:
         material: "PLAYER_HEAD"
         name: "&6&l%player%"
         lore:
-          - "&7CoinFlip statistics"
+          - "&7CoinFlip Statistics"
           - "&7Wins: &a%wins%"
           - "&7Losses: &c%losses%"
-          - "&7Win rate: &e%ratio%%"
+          - "&7Win Rate: &e%ratio%%"
           - "&7Profit: &b%profit%⛃"
 
     back:
       material: "ARROW"
       name: "&c&lBack"
       lore:
-        - "&7Return to the main menu"
+        - "&7Return to main menu"
       glow: true
 
+  # Join menu
   join-menu:
-    title: "&rAvailable CoinFlips"
+    title: "&rAvailable CoinFlip"
     size: 54
 
     slots:
@@ -186,21 +191,90 @@ gui:
       material: "ARROW"
       name: "<soft_yellow>&lBack"
       lore:
-        - "&7Return to the main menu"
+        - "&7Return to main menu"
       glow: true
 
-# ======================================
+    click-to-join:
+      - "<soft_red>Click to join"
+
+  # Leaderboard menu
+  top-menu:
+    title: "&rCoinFlip Leaderboard"
+
+    slots:
+      start: 10
+      per-row: 7
+      row-increment: 2
+      back: 49
+
+    items:
+      head:
+        material: "PLAYER_HEAD"
+        name: "&8#%position%. &6&l%player%"
+        lore:
+          - "&7Wins: &a%wins%"
+          - "&7Losses: &c%losses%"
+          - "&7Win Rate: &e%ratio%%"
+          - "&7Profit: &b%profit%⛃"
+          - ""
+          - "&eClick to view stats"
+
+    back:
+      material: "ARROW"
+      name: "<soft_yellow>&lBack"
+      lore:
+        - "&7Return to main menu"
+      glow: true
+
+  # History menu
+  history-menu:
+    title: "&rHistory"
+    size: 54
+
+    slots:
+      start: 0
+      max: 45
+      back: 49
+
+    items:
+      win:
+        material: "EMERALD"
+        name: "&a&lVICTORY"
+        lore:
+          - "&7Opponent: &f%opponent%"
+          - "&7Bet: &e%amount%⛃"
+          - "&7Date: &8%time%"
+          - ""
+          - "&7Profit: &a+%gain%"
+
+      loss:
+        material: "REDSTONE"
+        name: "&c&lDEFEAT"
+        lore:
+          - "&7Opponent: &f%opponent%"
+          - "&7Bet: &e%amount%⛃"
+          - "&7Date: &8%time%"
+          - ""
+          - "&7Loss: &c-%perte%"
+
+    back:
+      material: "ARROW"
+      name: "<soft_red>&lBack"
+      lore:
+        - "&7Return to main menu"
+      glow: true
+
 # 🎭 Prefix
-# ======================================
 prefix: "<soft_yellow>&lCoinFlip &f» "
 
 # ======================================
 # 🎯 Commands
 # ======================================
+# Update system messages
 update-notifier:
   checking: "&7Checking for updates..."
   no-update: "&a✓ CoinFlip is up to date!"
-  error: "&cError while checking updates: %error%"
+  error: "&cError checking for updates: %error%"
   console-message: |
     <soft_yellow>CoinFlip Update &f» &eA new version is available!
     &7Current version: &f%current_version%
@@ -213,22 +287,23 @@ update-notifier:
     &7Download: &b%link%
   dev-warning: "&c⚠ You are using a &lDEVELOPMENT&c version, bugs may occur!"
 
+# /coinflip about command messages
 commands:
   about:
     header: |
       <yellow>&lCoinFlip Information
     content: |
-      <soft_yellow>&l• Plugin information:
+      <soft_yellow>&l• Plugin Information:
       &7  Version: &f%version%
       &7  Update notifications: %update_notify%
       &7  Update available: %update_available%
 
-      <soft_yellow>&l• Server information:
+      <soft_yellow>&l• Server Information:
       &7  Server type: &f%server_type%
       &7  Server version: &f%server_version%
       &7  Tax system: &f%tax%%
 
-      <soft_yellow>&l• Game settings:
+      <soft_yellow>&l• Game Settings:
       &7  Minimum bet: &f%min_bet%
       &7  Maximum bet: &f%max_bet%
 
@@ -249,6 +324,7 @@ commands:
   usage: "&7Usage: &f%usage%"
   cooldown: "%prefix%&cPlease wait before using this command again"
 
+
 # ======================================
 # 🎰 Game
 # ======================================
@@ -268,14 +344,15 @@ game:
 
   start:
     countdown: "%prefix%&7Starting in &e3..."
-    started: "%prefix%&aThe game has started!"
+    started: "%prefix%&aThe game begins!"
 
   result:
     win: "%prefix%&aVictory &7(+%amount%)"
     loss: "%prefix%&cDefeat &7(-%amount%)"
-    draw: "%prefix%&eDraw, bet refunded"
+    draw: "%prefix%&eDraw, bet returned"
 
   refunded: "%prefix%&aBet of &f%amount% &arefunded"
+
 
 # ======================================
 # 🏆 Leaderboard
@@ -325,7 +402,7 @@ errors:
 # 🔧 Admin
 # ======================================
 admin:
-  stats-reset: "%prefix%&aStats of %player% reset"
+  stats-reset: "%prefix%&a%player%'s stats reset"
   leaderboard-reset: "%prefix%&aLeaderboard reset"
   force-cancel: "%prefix%&aGame #%id% cancelled"
   reload: "%prefix%&aConfiguration reloaded"
